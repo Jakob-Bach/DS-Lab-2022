@@ -23,7 +23,12 @@ or with `conda`:
 conda create --name ds-lab-2022 python=3.8
 ```
 
-Next, activate the environment.
+Next, activate the environment with either
+
+- `conda activate ds-lab-2022` (`conda`)
+- `source <path/to/env/destination>/bin/activate` (`virtualenv`, Linux)
+- `<path\to\env\destination>\Scripts\activate` (`virtualenv`, Windows)
+
 Install the dependencies with
 
 ```bash
@@ -36,6 +41,27 @@ If you make changes to the environment and you want to persist them, run
 python -m pip freeze > requirements.txt
 ```
 
-## Task 1: Data Mining Cup 2022 (`Task_1_DMC_2021/`)
+To make this environment available for notebooks, run
+
+```
+ipython kernel install --user --name=ds-lab-2022-kernel
+```
+
+To actually launch `Jupyter Notebook`, run
+
+```
+jupyter notebook
+```
+
+## Task 1: Data Mining Cup 2022 (`Task_1_DMC_2022/`)
+
+### Preparation
+
+Download the DMC task from the [website](https://www.data-mining-cup.com/dmc-2022/).
+Place the four CSVs in a folder called `data/` in the folder `Task_1_DMC_2022/`.
+
+### Exploration
+
+The notebook `Exploration.ipynb` contains basic exploration (mainly statistics) of the four CSVs.
 
 ## Task 2
