@@ -69,5 +69,7 @@ The notebook `Exploration.ipynb` contains basic exploration (mainly statistics) 
 - `split.py` creates a temporal train-test split.
   It takes all orders up to a certain day as training data and the following four weeks for testing.
   It creates corresponding files with (training) oders, a submission template, and the solution.
+- `predict_no_replenishment.py` creates a baseline solution for the train-test split,
+  constantly predicting no replenishment.
 
 ## Task 2
