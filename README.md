@@ -80,5 +80,7 @@ The notebook `Exploration.ipynb` contains basic exploration (mainly statistics) 
   (which happens in most cases), predict no replenishment.
 - `score.py` scores submissions of students for the course-internal train-test split.
   It also checks the validity of the submissions.
+- `check_submission_identity.py` checks whether identically-named submission files have the same
+  content (= checks reproducibility).
 
 ## Task 2
