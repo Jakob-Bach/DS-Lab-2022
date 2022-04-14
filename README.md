@@ -78,5 +78,7 @@ The notebook `Exploration.ipynb` contains basic exploration (mainly statistics) 
   the next replenishment date based on the amount ordered last.
   If this date falls after the test period, or a user did not order an item on at least two dates
   (which happens in most cases), predict no replenishment.
+- `score.py` scores submissions of students for the course-internal train-test split.
+  It also checks the validity of the submissions.
 
 ## Task 2
