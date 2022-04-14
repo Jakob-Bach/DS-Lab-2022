@@ -71,5 +71,12 @@ The notebook `Exploration.ipynb` contains basic exploration (mainly statistics) 
   It creates corresponding files with (training) oders, a submission template, and the solution.
 - `predict_no_replenishment.py` creates a baseline solution for the train-test split,
   constantly predicting no replenishment.
+- `predict_interpolated_orders.py` creates a more sophisticated prediction
+  (which still ignores item features and uses no prediction model):
+  For items purchased on at least two days by the particular customer in the training period,
+  it computes how long the ordered amount lasted on average, and uses this information to estimate
+  the next replenishment date based on the amount ordered last.
+  If this date falls after the test period, or a user did not order an item on at least two dates
+  (which happens in most cases), predict no replenishment.
 
 ## Task 2
