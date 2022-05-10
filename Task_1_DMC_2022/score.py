@@ -64,4 +64,5 @@ if __name__ == '__main__':
             score = float('nan')
         results.append({'Team': team_name, 'Score': score, 'Validity': validity_status})
     results = pd.DataFrame(results).sort_values(by='Score', ascending=False)
+    results['Score'] = (results['Score'] / len(submission)).round(2)
     print(results)
