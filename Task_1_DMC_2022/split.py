@@ -17,21 +17,14 @@ LAST_TRAIN_DAY = pd.Timestamp('2020-12-31')
 
 if __name__ == '__main__':
     orders = pd.read_csv(DATA_DIR / 'orders.csv', sep='|', parse_dates=['date'])
+    submission = pd.read_csv(DATA_DIR / 'submission.csv', sep='|')
 
     orders_train = orders[orders['date'] <= LAST_TRAIN_DAY]
     solution = orders_train[['userID', 'itemID']].copy()
-
-    # Option 1: Keep all train user-item combinations in test (as an alternative: sample)
-    # --- no additional code necessary ---
-
-    # # Option 2: Keep only train user-item combinations in test that appear in DMC test set:
-    # solution = solution.merge(pd.read_csv(DATA_DIR / 'submission.csv', sep='|')[['userID', 'itemID']])
-
-    # # Option 3: Keep only user-item combinations in test that appear at least twice in train:
-    # solution = solution.groupby(['userID', 'itemID']).filter(lambda x: len(x) >= 2)
-
     # Remove repeated orders:
     solution.drop_duplicates(inplace=True)
+    # Keep only train user-item combinations in test that appear in DMC test set:
+    solution = solution.merge(submission[['userID', 'itemID']])
     # Find the first date after training period when item is purchased by a user
     first_replenishment = orders[orders['date'] > LAST_TRAIN_DAY].groupby(
         ['userID', 'itemID'])['date'].min().reset_index()
