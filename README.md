@@ -55,6 +55,9 @@ jupyter notebook
 
 ## Task 1: Data Mining Cup 2022 (`Task_1_DMC_2022/`)
 
+The first task of the course is identical to the task of the `Data Mining Cup 2022`.
+We only add a course-internal splitting and scoring to compare the students' solutions.
+
 ### Preparation
 
 Download the DMC task from the [website](https://www.data-mining-cup.com/dmc-2022/).
@@ -83,4 +86,21 @@ The notebook `Exploration.ipynb` contains basic exploration (mainly statistics) 
 - `check_submission_identity.py` checks whether identically-named submission files have the same
   content (= checks reproducibility).
 
-## Task 2
+## Task 2: SAT Solving (`Task_2_SAT_Solving/`)
+
+The second task of the course works with features of SAT instances
+from the [Global Benchmark Database (`GBD`)](https://gbd.iti.kit.edu/).
+We have two prediction targets, which are assigned to different teams of students:
+
+- Is the instance satisfiable or not (column `result` in database `meta`)?
+- To which family does the instance belong (column `family` in database `meta`)?
+
+Besides exploring the data, students should use classification as well as clustering approaches.
+
+### Preparation
+
+`prepare_data.py` pre-processes the dataset:
+
+- download databases with meta data and instance features from `GBD`
+- merge databases
+- filter for instances with known satisfiablity result and no NAs in instance features
