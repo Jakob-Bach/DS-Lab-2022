@@ -111,3 +111,5 @@ Besides exploring the data, students should use classification as well as cluste
 ### Scoring
 
 - `split.py` creates a stratified holdout split for both targets.
+- `predict_majority.py` creates a baseline solution that constantly predicts the majoriy class.
+- `predict_tree.py` creates a simple solution with the help of a decision tree.
