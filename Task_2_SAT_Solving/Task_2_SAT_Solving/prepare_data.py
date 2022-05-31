@@ -3,7 +3,7 @@
 Script that prepares the dataset for the practical course by:
     - downloading necessary databases with meta data and instance features from GBD
     - merging databases
-    - filter the dataset (solved instances, no NAs in instance features)
+    - filter the dataset (solved instances, no NAs in instance features, no very rare families)
 """
 
 
@@ -45,5 +45,7 @@ if __name__ == '__main__':
     # Pre-process dataset:
     dataset[numeric_cols] = dataset[numeric_cols].transform(pd.to_numeric, errors='coerce')
     dataset = dataset[dataset['meta.result'] != 'unknown']
+    dataset = dataset.groupby('meta.family').filter(lambda x: len(x) >= 10)
     dataset = dataset[dataset[numeric_cols].notna().all(axis='columns')]
+    assert dataset['hash'].nunique() == len(dataset)
     dataset.to_csv(DATA_DIR / 'dataset.csv', index=False)

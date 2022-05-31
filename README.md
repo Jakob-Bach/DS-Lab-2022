@@ -4,7 +4,7 @@ This is the supervisor repo of the ["Data Science Laboratory Course"](https://db
 Students worked on two subtasks:
 
 - the [Data Mining Cup 2022](https://www.data-mining-cup.com/dmc-2022/)
-- a research problem from the field of SAT solving
+- a research problem from the field of [SAT solving](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem)
 
 The repo provides files for preparing the datasets, some basic exploration, course-internal splitting, scoring, and demo submissions for that.
 
@@ -103,4 +103,11 @@ Besides exploring the data, students should use classification as well as cluste
 
 - download databases with meta data and instance features from `GBD`
 - merge databases
-- filter for instances with known satisfiablity result and no NAs in instance features
+- filter instances:
+  - known satisfiablity result
+  - at least 10 members in family (which is still quite few)
+  - no NAs in instance features
+
+### Scoring
+
+- `split.py` creates a stratified holdout split for both targets.
