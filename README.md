@@ -72,6 +72,8 @@ The notebook `Exploration.ipynb` contains basic exploration (mainly statistics) 
 - `split.py` creates a temporal train-test split.
   It takes all orders up to a certain day as training data and the following four weeks for testing.
   It creates corresponding files with (training) oders, a submission template, and the solution.
+- `predict_ensembles.py` creates ensemble solutions from existing solution files.
+  It uses statistical aggregates (like min, mode, etc.) and stacking.
 - `predict_no_replenishment.py` creates a baseline solution for the train-test split,
   constantly predicting no replenishment.
 - `predict_interpolated_orders.py` creates a more sophisticated prediction
